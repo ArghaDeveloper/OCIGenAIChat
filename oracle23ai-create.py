@@ -13,8 +13,7 @@ properties = LoadProperties()
 #Declare username and password and dsn (data connection string)
 username = "ADMIN"
 password = properties.getDBPassword()
-dsn = '''(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.us-ashburn-1.oraclecloud.com))(connect_data=(service_name=g620084201a219b_lgjp26j8kjiikxu3_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'''
-
+dsn = properties.getDBDSN()
 # Connect to the database
 try:
     conn23c = oracledb.connect(user=username, password=password, dsn=dsn)
